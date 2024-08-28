@@ -1,0 +1,35 @@
+
+
+<header class=" overflow-x-hidden ">
+  <!-- main container -->
+  <div id="header"  class="flex  items-center justify-between px-8 md:px-16 py-8 md:py-4  z-30 w-screen  font-sec bg-black border-transparent opacity-95">
+    <img class=" cursor-pointer hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-xl transition-all duration-150" src="../../../assets/sub/logo.png" alt="">
+    <div class="md:flex hidden items-center space-x-6">
+      <a href="#ourvalues" class="text-sec text-base lg:text-lg hover:text-gray-300 teansition-all">Our Value</a>
+      <a href="#ContactUs" class="text-sec text-base lg:text-lg hover:text-gray-300 teansition-all">Contact Us</a>
+      <a href="#getstart" class="text-sec text-base lg:text-lg hover:text-gray-300 teansition-all">Get Started</a>
+      <a routerLink="auth/login" class="text-sec text-base lg:text-lg hover:text-gray-300 teansition-all">Login</a>
+      <a routerLink="auth/signup" class="text-sec text-base lg:text-lg px-4 py-2 rounded-xl hover:text-white bg-thr hover:bg-opacity-90 transition-all ">Sign Up</a>
+    </div>
+    <!-- mobile menu -->
+    <div id="toggle" (click)="openToggle()" class=" md:hidden toggle transition-all duration-150 cursor-pointer ">
+      <span class="top"></span>
+      <span class="middle"></span>
+      <span class="button"></span>
+    </div>
+  </div>
+  <!-- mobile list -->
+
+
+</header>
+
+<div class="absolute top-0 left-0">
+  <div id="mobile_list" class="md:hidden  transition-all duration-200 flex flex-col justify-start space-y-6 text-gray-100 -translate-x-32  w-32 p-4 py-10  items-start min-h-screen z-50 bg-black  fixed">
+    <img class=" cursor-pointer hover:-translate-y-0.5 hover:translate-x-0.5 hover:shadow-xl transition-all duration-150" src="../../../assets/sub/logo.png" alt="">
+    <a href="#ourvalues" (click)="sidedisapper()" class="text-sec text-base w-full hover:text-gray-300 teansition-all ">Our Value</a>
+    <a href="#ContactUs" (click)="sidedisapper()" class="text-sec text-base w-full hover:text-gray-300 teansition-all">Contact Us</a>
+    <a href="#getstart" (click)="sidedisapper()" class="text-sec text-base w-full hover:text-gray-300 teansition-all">Get Started</a>
+    <a href="#" (click)="sidedisapper()" class="text-sec text-base w-full hover:text-gray-300 teansition-all">Login</a>
+    <a href="#" (click)="sidedisapper()" class="text-sec text-base w-full hover:text-gray-300 teansition-all">Sign Up</a>
+  </div>
+</div>

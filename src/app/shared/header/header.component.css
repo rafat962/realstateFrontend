@@ -1,0 +1,53 @@
+.toggle{
+  width: 24px;
+  height: 24px;
+  border-radius: 30%;
+  position: relative;
+  transition: all ease 0.3s;
+}
+
+
+
+.top,
+.middle,
+.button{
+  position: absolute;
+  height: 3px;
+  right: 0;
+  top:calc(50% - 3px);
+  background-color: white;
+  transition: all ease 0.3s;
+}
+
+.top{
+  width: 100%;
+  transform: translateY(-7px);
+  transition: all ease 0.3s;
+}
+.middle{
+  width: 75%;
+  transition: all ease 0.3s;
+}
+.button{
+  width: 40%;
+  transform: translateY(7px);
+  transition: all ease 0.3s;
+}
+
+
+.open .top{
+  width: 100%;
+  transform: rotate(45deg);
+  transition: all ease 0.3s;
+}
+.open .button{
+  width: 100%;
+  transform: rotate(-45deg);
+  transition: all ease 0.3s;
+}
+.open .middle{
+  width: 75%;
+  opacity: 0;
+  transition: all ease 0.3s;
+}
+

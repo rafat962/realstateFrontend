@@ -1,0 +1,92 @@
+<app-flat_header></app-flat_header>
+
+
+<body >
+    <!-- main Container -->
+    <div class="max-w-7xl mx-auto  px-6 p-2 space-y-8">
+        <!-- header -->
+        <div class="flex items-center space-x-6">
+          <p class="text-md font-sans text-cyan-800 hover:-translate-x-1 trans items-center cursor-pointer hover:brightness-105"> < Back to Search</p>
+          <h1 class="text-sm font-sans ">For {{flat.Purpose}} :  <span class="text-md text-blue-600">{{flat.location.address.split(',')[0]}}</span> > <span class="text-md text-blue-600">{{flat.location.address.split(',')[1]}}</span> > {{flat.developer}}  </h1>
+        </div>
+        <!-- images -->
+        <div class="grid grid-cols-4 gap-1 w-full  ">
+            <!-- front images -->
+            <div class="relative col-span-3 w-full cursor-pointer  h-[70vh] ">
+                <img src="{{api}}/public/img_units/{{flat.main_img}}" alt="" class=" hover:brightness-110 trans object-cover w-full h-full">
+                <div class="absolute bottom-4 left-6 p-2 flex space-x-2">
+                    <button class="trans rounded-full bg-black bg-opacity-60 flex items-center justify-center px-4 p-1 text-white font-sans  hover:bg-opacity-70">
+                        <i class='bx bx-map'></i> Map
+                    </button>
+                    <button class="trans hover:brightness-95 rounded-full bg-cyan-700 flex items-center justify-center px-4 p-1 text-white font-sans ">
+                        Request video
+                    </button>
+                </div>
+            </div>
+            <!-- right image -->
+            <div class="col-span-1 w-full space-y-3 bg-red-56 cursor-pointer trans">
+                <!-- image1 -->
+                <div class="h-56 hover:brightness-105 ">
+                    <img src="{{api}}/public/img_units/{{flat.sub_img[0]}}" alt="" class="w-full h-full object-cover">
+                </div>
+                <!-- image2 -->
+                <div class="w-full  h-40 hover:brightness-105 ">
+                    <img src="{{api}}/public/img_units/{{flat.sub_img[1]}}" alt="" class="w-full h-full object-cover">
+                </div>
+                <!-- image3 -->
+                <div class="w-full h-36 hover:brightness-105 ">
+                    <img src="{{api}}/public/img_units/{{flat.sub_img[2]}}" alt="" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+        <!-- data -->
+        <div class="grid grid-cols-4 gap-1 w-full  p-2">
+            <!-- leftSide images -->
+            <div class="relative flex flex-col space-y-6 col-span-3 w-full   h-[70vh] font-sans">
+                <!-- price and share -->
+                <div class="flex items-center justify-between">
+                    <h1 class="text-3xl font-semibold ">EGP {{flat.price}}</h1>
+                    <div class="flex space-x-2 items-center">
+                        <button class="bg-gray-200 text-cyan-800 rounded-xl px-4 py-1 text-center hover:bg-gray-300 trans">
+                            <i class='bx bx-heart' ></i> Save
+                        </button>
+                        <button class="bg-gray-200 text-cyan-800 rounded-xl px-4 py-1 text-center hover:bg-gray-300 trans">
+                            <i class='bx bx-share-alt' ></i> Share
+                        </button>
+                    </div>
+                </div>
+                <h1 class="text-xl font-semibold">
+                    {{flat.location.address}}
+                </h1>
+                <div class='flex space-x-4 w-full items-start'>
+                    <div class='flex space-x-1 items-center'>
+                      <i class='bx bx-bed text-xl'></i>
+                      <p class='text-xl'>{{flat.bedrooms}}</p>
+                    </div>
+                    <div class='flex space-x-1 items-center'>
+                      <i class='bx bx-bath text-xl' ></i>
+                      <p class='text-xl'>{{flat.pathrooms}}</p>
+                    </div>
+                    <div class='flex space-x-1 items-center'>
+                      <i class='bx bx-area text-xl' ></i>
+                      <p class='text-xl'>{{flat.area}} Sq.M.</p>
+                    </div>
+                </div>
+                <h1 class="text-xl font-semibold max-w-3xl tracking-wide leading-8">
+                    {{flat.outdoor_description}}
+                </h1>
+            </div>
+            <!-- rightSide image -->
+            <div class="col-span-1 w-full space-y-3 bg-red-56 cursor-pointer trans ">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+
+
+
+

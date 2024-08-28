@@ -1,0 +1,163 @@
+<h2 mat-dialog-title>Your Subscription<br> <span class="text-sm text-gray-500">Join us to find your dream property! Get exclusive listings and expert advice. Sign up now and start your journey.</span> </h2>
+<mat-dialog-content class="mat-typography w-full min-h-[75vh]">
+  <!-- component -->
+<!-- This is an example component -->
+<div class='flex min-h-screen pt-[30px] px-[40px]'>
+  <div class="min-w-full">
+    <div class="mt-[20px] grid grid-cols-1 grid-rows-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]">
+        <div key="1" class="w-full bg-[#fff] rounded-[10px] shadow-[0px 1px 2px #E1E3E5] border border-[#E1E3E5] divide-y hover:-translate-y-0.5 hover:shadow-xl transition-all duration-200">
+            <div class="pt-[15px] px-[25px] pb-[25px]">
+                <div class="flex justify-end">
+                    <div class="bg-[#F6F6F7] rounded-full flex items-end justify-end px-4 py-2 ">
+                        <span class="text-xs text-[#00153B] inline ">Starter</span>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-[#00153B] text-[19px] leading-[24px] font-bold">
+                        Trial
+                    </p>
+                    <p class="text-[#00153B] text-[50px] leading-[63px] font-bold">
+                        Free
+                    </p>
+                </div>
+                <div>
+                    <p class="text-[#717F87] text-[18px] leading-[28px] font-medium">
+                        5 Credits
+                    </p>
+                    <p class="text-[#717F87] text-[18px] leading-[28px] font-medium">
+                        1 User
+                    </p>
+                </div>
+            </div>
+
+            <div class="pt-[25px] px-[25px] pb-[35px]">
+                <div>
+                    <p class="text-[#717F87] text-[13px] leading-[24px] font-medium">
+                        - You can upload your units and their details.
+                    </p>
+                    <p class="text-[#717F87] text-[13px] leading-[24px] font-medium">
+                        - A maximum of 5 photos can be uploaded.
+                    </p>
+                    <p class="text-[#717F87] text-[13px] leading-[24px] font-medium">
+                        - Place your unit on the site's general map.
+                    </p>
+                    <p class="text-[#717F87] text-[13px] leading-[24px] font-medium">
+                        - Unlimited number of viewers for your units.
+                    </p>
+                    <p class="text-[#717F87] text-[13px] leading-[24px] font-medium">
+                        - You cannot use the site's chat feature to communicate with clients.
+                    </p>
+                </div>
+
+                <div class="mt-[25px]">
+                    <button type="button" routerLink="../" mat-dialog-close (click)="sendpackage('free')"   class="bg-[#006EF5] rounded-[5px] py-[15px] px-[25px] text-[#fff] text-[14px] leading-[17px] font-semibold border-2 border-[#006EF5] hover:bg-white hover:text-[#006EF5] transition-all duration-200">subscribe</button>
+                </div>
+            </div>
+        </div>
+
+        <div key="2" class="w-full bg-[#fff] rounded-[10px] shadow-[0px 1px 2px #E1E3E5] border border-[#E1E3E5] divide-y hover:-translate-y-0.5 hover:shadow-xl transition-all duration-200">
+            <div class="pt-[15px] px-[25px] pb-[25px]">
+                <div class="flex justify-end">
+                    <div class="bg-[#F6F6F7] rounded-full flex items-end justify-end px-4 py-2 ">
+                        <span class="text-xs text-[#00153B] inline ">Value</span>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-[#00153B] text-[19px] leading-[24px] font-bold">
+                        Fast Start
+                    </p>
+                    <p class="text-[#00153B] text-[50px] leading-[63px] font-bold">
+                        $49
+                    </p>
+                </div>
+
+                <div>
+                    <p class="text-[#717F87] text-[18px] leading-[28px] font-medium">
+                        50 Credits per month
+                    </p>
+                    <p class="text-[#717F87] text-[18px] leading-[28px] font-medium">
+                        Unlimited users
+                    </p>
+                </div>
+            </div>
+
+            <div class="pt-[25px] px-[25px] pb-[35px]">
+                <div>
+                    <p class="text-[#717F87] text-[13px] leading-[24px] font-medium">
+                        - You can upload your units and their details.
+                    </p>
+                    <p class="text-[#717F87] text-[13px] leading-[24px] font-medium">
+                        - Place your unit on the site's general map.
+                    </p>
+                    <p class="text-[#717F87] text-[13px] leading-[24px] font-medium">
+                        - Unlimited number of viewers for your units.
+                    </p>
+                    <p class="text-[#717F87] text-[13px] leading-[24px] font-medium">
+                        - You can use the site's chat feature to communicate with clients.
+                    </p>
+                    <p class="text-[#717F87] text-[13px] leading-[24px] font-medium">
+                        - Maps are created for all services surrounding the unit.
+                    </p>
+                </div>
+                <div class="mt-[25px]">
+                    <button (click)="sendpackage('silver')"  class="bg-[#006EF5] rounded-[5px] py-[15px] px-[25px] text-[#fff] text-[14px] leading-[17px] font-semibold border-2 border-[#006EF5] hover:bg-white hover:text-[#006EF5] transition-all duration-200">subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div key="3" class="w-full bg-[#fff] rounded-[10px] shadow-[0px 1px 2px #E1E3E5] border border-[#E1E3E5] divide-y hover:-translate-y-0.5 hover:shadow-xl transition-all duration-200">
+            <div class="pt-[15px] px-[25px] pb-[25px]">
+                <div class="flex justify-end">
+                    <div class="bg-[#F6F6F7] rounded-[20px] flex justify-center align-center px-[12px]">
+                        <div class="bg-[#F6F6F7] rounded-full flex items-end justify-end px-4 py-2 ">
+                            <span class="text-xs text-[#00153B] inline ">Pro</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-[#00153B] text-[19px] leading-[24px] font-bold">
+                        Accelerate
+                    </p>
+                    <p class="text-[#00153B] text-[50px] leading-[63px] font-bold">
+                        $89
+                    </p>
+                </div>
+                <div>
+                    <p class="text-[#717F87] text-[18px] leading-[28px] font-medium">
+                        100 Credits per month
+                    </p>
+                    <p class="text-[#717F87] text-[18px] leading-[28px] font-medium">
+                        Unlimited users
+                    </p>
+                </div>
+            </div>
+            <div class="pt-[25px] px-[25px] pb-[35px]">
+                <div>
+                    <p class="text-[#717F87] text-[13px] leading-[24px] font-medium">
+                        - You can upload your units and details.
+                    </p>
+                    <p class="text-[#717F87] text-[13px] leading-[24px] font-medium">
+                        - Place your unit on the site's general map.
+                    </p>
+                    <p class="text-[#717F87] text-[13px] leading-[24px] font-medium">
+                        - Maps are created for all services surrounding the unit.
+                    </p>
+                    <p class="text-[#717F87] text-[13px] leading-[24px] font-medium">
+                        - You can use the site's chat feature to communicate with clients.
+                    </p>
+                    <p class="text-[#717F87] text-[13px] leading-[24px] font-medium">
+                        - You can upload BIM files for your unit along with utilizing our site's AI chatbot to recommend your units.
+                    </p>
+                </div>
+                <div class="mt-[25px]">
+                    <button (click)="sendpackage('pro')"  class="bg-[#006EF5] rounded-[5px] py-[15px] px-[25px] text-[#fff] text-[14px] leading-[17px] font-semibold border-2 border-[#006EF5] hover:bg-white hover:text-[#006EF5] transition-all duration-200">subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

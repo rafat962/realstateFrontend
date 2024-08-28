@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components{
+  .btn-blue{
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+  }
+  .trans{
+    @apply transition-all duration-200
+  }
+  .fc{
+    @apply flex flex-col items-center
+  }
+  .sp{
+    @apply h-full w-0.5 border-r-2 p-1 border-gray-300
+  }
+}
+
+
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

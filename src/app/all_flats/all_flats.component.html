@@ -1,0 +1,436 @@
+
+
+<!-- header -->
+<app-flat_header></app-flat_header>
+
+    <!-- ********** edit here max-w-7xl to w-full and space-y-6 to space-y-1 -->
+<body id="body"  class="w-full mx-auto  px-6 p-2 space-y-1" >
+
+  <!-- fillters -->
+  <section >
+    <!-- main fillter -->
+    <div  id="main-filter" class="  w-full  grid justify-center grid-cols-2 md:grid-cols-3  gap-2 lg:flex items-center lg:space-x-2 border-b-2 border-gray-200 py-4 ">
+      <!-- search -->
+      <div class="px-4 py-2 h-14 space-x-1 outline outline-1 outline-gray-200  flex items-center justify-center focus:outline-black rounded-xl">
+        <i class='bx bx-current-location text-2xl' ></i>
+        <input [(ngModel)]="location" type="text" class="w-full px-2   focus:outline-none  placeholder:text-black placeholder:text-sm md:placeholder:text-md placeholder:font-sec" placeholder="Enter location">
+      </div>
+      <!-- options -->
+      <div id="optiontype" class=" py-1 px-1 h-14   outline outline-1 outline-gray-200  flex items-center justify-between focus:outline-black rounded-xl">
+        <button (click)="typeOfPlan('Rent')"  (click)="send('','')" class=" h-full px-2 w-full  md:px-4 hover:bg-blue-200   transition-all duration-200  rounded-xl">Rent</button>
+        <button (click)="typeOfPlan('Buy')"  (click)="send('','')" class=" h-full px-2 w-full md:px-4 hover:bg-blue-200 bg-blue-300 transition-all duration-200 rounded-xl">Buy</button>
+        <button (click)="typeOfPlan('Off-Plan')"  (click)="send('','')"  class=" h-full w-full px-2  md:px-4  hover:bg-blue-200  transition-all duration-200 rounded-xl">Off-Plan</button>
+      </div>
+      <!-- type -->
+      <div class="relative  py-1 px-1 h-14 w-full lg:w-44  outline outline-1 outline-gray-200  flex items-center justify-center focus:outline-black rounded-xl">
+        <button (click)="openTypeMenu()"  class="flex items-center justify-between p-1 w-full px-4">
+          <p>{{unitType}}</p>
+          <i id="arrow" class='bx bxs-chevron-down transition-all duration-200'></i>
+        </button>
+        <!-- in type -->
+        <div id="intype" class="hidden z-30 w-80 lg:w-96 p-2 bg-white shadow-2xl drop-shadow-lg rounded-lg absolute top-16 left-1 md:-left-16  xl:right-0.5">
+          <mat-tab-group>
+            <mat-tab label="Residential">
+              <div class="grid grid-cols-2 gap-3 grid-rows-5 py-3 px-2">
+                <button (click)="typeOfunit('Apartment')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Apartment</button>
+                <button (click)="typeOfunit('Townhouse')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Townhouse</button>
+                <button (click)="typeOfunit('Villa')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Villa</button>
+                <button (click)="typeOfunit('Twin House')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Twin House</button>
+                <button (click)="typeOfunit('Duplex')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Duplex</button>
+                <button (click)="typeOfunit('Room')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Room</button>
+                <button (click)="typeOfunit('Penthouse')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Penthouse</button>
+                <button (click)="typeOfunit('Residential Land')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Residential Land</button>
+                <button (click)="typeOfunit('Chalet')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Chalet</button>
+                <button (click)="typeOfunit('Other Residential')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Other Residential</button>
+              </div>
+            </mat-tab>
+            <mat-tab label="Commercial">
+              <div  id="but" class="grid grid-cols-2 gap-3 grid-rows-5 py-3 px-2">
+                <button (click)="typeOfunit('Office')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Office</button>
+                <button (click)="typeOfunit('Restaurant & Cafe')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Restaurant & Cafe</button>
+                <button (click)="typeOfunit('Commercial Building')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Commercial Building</button>
+                <button (click)="typeOfunit('Retail')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Retail</button>
+                <button (click)="typeOfunit('Warehouse')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Warehouse</button>
+                <button (click)="typeOfunit('Agricultural')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Agricultural</button>
+                <button (click)="typeOfunit('Clinic')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Clinic</button>
+                <button (click)="typeOfunit('Industrial')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Industrial</button>
+                <button (click)="typeOfunit('Factory')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Factory</button>
+                <button (click)="typeOfunit('Commercial Land')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Commercial Land</button>
+                <button (click)="typeOfunit('Garage')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Garage</button>
+                <button (click)="typeOfunit('Other Commercial')" class="outline outline-1 outline-gray-300 rounded-full text-sm py-0.5 font-sans hover:bg-blue-200 focus:bg-blue-300 focus:text-blue-800 transition-all duration-200">Other Commercial</button>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+          <div class="flex items-center w-full space-x-2 px-2">
+            <button (click)="unitType='Apartment'"  class="w-1/2 rounded-xl outline outline-1 outline-blue-300 py-1 font-sans hover:outline-blue-900 transition-all duration-200">Reset</button>
+            <button (click)="send('intype','arrow')" class="w-1/2 rounded-xl  bg-blue-900 text-white py-1 font-sans hover:bg-blue-600 transition-all duration-200">Done</button>
+          </div>
+        </div>
+      </div>
+      <!-- Beds and Baths -->
+      <div class="relative  py-1 md:px-1 h-14 w-full  lg:w-44  outline outline-1 outline-gray-200  flex items-center justify-center focus:outline-black rounded-xl">
+        <button (click)="openbedsMenu()"  class="flex items-center justify-between p-1 w-full px-4">
+          <p class="text-md md:text-sm lg:text-base">{{bedrooms}}Beds/{{baths}} Baths</p>
+          <i id="arrow2" class='bx bxs-chevron-down transition-all duration-200'></i>
+        </button>
+        <!-- in Beds -->
+        <div id="inbeds" class="hidden z-30 w-80 lg:w-96 p-2 bg-white shadow-2xl drop-shadow-lg rounded-lg absolute top-16 right-0.5 md:left-10 lg:right-0.5">
+          <div class="flex flex-col items-start py-2 px-2 space-y-4">
+            <h3 class="font-sans text-base">Beds</h3>
+            <mat-chip-listbox aria-label="Fish selection" #Bedslist (click)="extractSelectedValue()">
+              <mat-chip-option >Studio</mat-chip-option>
+              <mat-chip-option>1</mat-chip-option>
+              <mat-chip-option >2</mat-chip-option>
+              <mat-chip-option #bedselected >3</mat-chip-option>
+              <mat-chip-option>4</mat-chip-option>
+              <mat-chip-option>5</mat-chip-option>
+              <mat-chip-option>+6</mat-chip-option>
+            </mat-chip-listbox>
+          </div>
+          <div class="flex flex-col items-start py-2 px-2 space-y-4">
+            <h3 class="font-sans text-base">Baths</h3>
+            <mat-chip-listbox aria-label="Fish selection" class="" #Baths (click)="extractBaths()">
+              <mat-chip-option   #bathselect >1</mat-chip-option>
+              <mat-chip-option >2</mat-chip-option>
+              <mat-chip-option>3</mat-chip-option>
+              <mat-chip-option>4</mat-chip-option>
+              <mat-chip-option>5</mat-chip-option>
+              <mat-chip-option>+6</mat-chip-option>
+            </mat-chip-listbox>
+          </div>
+          <div class="flex items-center w-full space-x-2 px-2">
+            <button (click)="resetbeds()"   class="w-1/2 rounded-xl outline outline-1 outline-blue-300 py-1 font-sans hover:outline-blue-900 transition-all duration-200">Reset</button>
+            <button (click)="send('inbeds','arrow2')" class="w-1/2 rounded-xl  bg-blue-900 text-white py-1 font-sans hover:bg-blue-600 transition-all duration-200">Done</button>
+          </div>
+        </div>
+      </div>
+      <!-- Price -->
+      <div class="relative  py-1 px-1 h-14 w-full lg:w-40  outline outline-1 outline-gray-200  flex items-center justify-center focus:outline-black rounded-xl">
+        <button (click)="openpriceMenu()"  class="flex items-center justify-between p-1 w-full px-4">
+          <p>Price (EGP)</p>
+          <i id="arrow3" class='bx bxs-chevron-down transition-all duration-200'></i>
+        </button>
+        <!-- in Price -->
+        <div id="inprice" class="hidden z-30 w-72 lg:w-96 p-2 bg-white shadow-2xl drop-shadow-lg rounded-lg absolute top-16 left-6 md:right-0.5">
+          <div class="grid grid-cols-2 gap-4  px-2 py-1 pb-4">
+            <div class="flex flex-col items-start space-y-4">
+              <h3 class="font-sans text-md">Minimum</h3>
+              <input #min [(ngModel)]="minPrice" type="number" class="w-full rounded-xl outline outline-1 outline-gray-300 px-4 py-1" placeholder="0" [matAutocomplete]="auto" >
+              <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option value="0">0</mat-option>
+                  <mat-option value="400000">400,000</mat-option>
+                  <mat-option value="450000">450,000</mat-option>
+                  <mat-option value="500000">500,000</mat-option>
+                  <mat-option value="550000">550,000</mat-option>
+                  <mat-option value="600000">600,000</mat-option>
+                  <mat-option value="650000">650,000</mat-option>
+                  <mat-option value="700000">700,000</mat-option>
+              </mat-autocomplete>
+            </div>
+            <div class="flex flex-col items-start space-y-4">
+              <h3 class="font-sans text-md">Maximum</h3>
+              <input #max [(ngModel)]="maxPrice" type="number" class="w-full rounded-xl outline outline-1 outline-gray-300 px-4 py-1" placeholder="Any" [matAutocomplete]="auto2">
+              <mat-autocomplete #auto2="matAutocomplete">
+                <mat-option value="0">0</mat-option>
+                <mat-option value="800000">800,000</mat-option>
+                <mat-option value="900000">900,000</mat-option>
+                <mat-option value="1000000">1,000,000</mat-option>
+                <mat-option value="1100000">1,100,000</mat-option>
+                <mat-option value="1200000">1,200,000</mat-option>
+                <mat-option value="1300000">1,300,000</mat-option>
+                <mat-option value="1500000">1,500,000</mat-option>
+                <mat-option value="1600000">1,600,000</mat-option>
+            </mat-autocomplete>
+            </div>
+          </div>
+          <div class="flex items-center w-full space-x-2 px-2">
+            <button (click)="resetprice()" class="w-1/2 rounded-xl outline outline-1 outline-blue-300 py-1 font-sans hover:outline-blue-900 transition-all duration-200">Reset</button>
+            <button (click)="send('inprice','arrow3')" class="w-1/2 rounded-xl  bg-blue-900 text-white py-1 font-sans hover:bg-blue-600 transition-all duration-200">Done</button>
+          </div>
+        </div>
+      </div>
+      <!-- more filters -->
+      <div class="relative w-full  py-1 px-1 h-14 lg:w-40  outline outline-1 outline-gray-200  flex items-center justify-center focus:outline-black rounded-xl">
+        <button (click)="openfilterMenu()"  class="flex items-center justify-between p-1 w-full px-4">
+          <p>More Filters</p>
+          <i id="arrow4" class='bx bx-filter-alt'></i>
+        </button>
+        <!-- in filters -->
+        <div id="infilter" class="hidden z-30 w-80 lg:w-96 p-2 bg-white shadow-2xl drop-shadow-lg rounded-lg absolute top-16 right-0.5">
+          <h2 class="font-sans text-md px-2 py-2">Area (Sq. M.)</h2>
+          <div class="grid grid-cols-2 gap-4  px-2 py-1 pb-4">
+            <div class="flex flex-col items-start space-y-4">
+              <!-- min SQR -->
+              <h3 class="font-sans text-sm text-gray-600">Minimum</h3>
+              <input [(ngModel)]="minSqr" class="w-full rounded-xl outline outline-1 outline-gray-300 px-4 py-1" placeholder="0" [matAutocomplete]="autosqr" >
+              <mat-autocomplete #autosqr="matAutocomplete">
+                  <mat-option value="0">0</mat-option>
+                  <mat-option value="100">100</mat-option>
+                  <mat-option value="150">150</mat-option>
+                  <mat-option value="200">200</mat-option>
+                  <mat-option value="250">250</mat-option>
+                  <mat-option value="300">300</mat-option>
+                  <mat-option value="350">350</mat-option>
+                  <mat-option value="400">400</mat-option>
+                  <mat-option value="450">450</mat-option>
+                  <mat-option value="500">500</mat-option>
+                  <mat-option value="550">550</mat-option>
+                  <mat-option value="600">600</mat-option>
+              </mat-autocomplete>
+            </div>
+            <div class="flex flex-col items-start space-y-4">
+              <h3 class="font-sans text-md text-sm text-gray-600">Maximum</h3>
+              <input  [matAutocomplete]="autosqr" [(ngModel)]="maxSqr" class="w-full rounded-xl outline outline-1 outline-gray-300 px-4 py-1" placeholder="Any">
+            </div>
+          </div>
+          <div class="flex items-start px-2 flex-col py-2">
+            <h2 class="font-sans text-md px-2 py-2">Area (Sq. M.)</h2>
+            <input [(ngModel)]="Keyword" type="text" class="w-full px-2 py-3 rounded-xl outline outline-1 outline-gray-300 placeholder:pl-2" placeholder="Add relavent keyword">
+          </div>
+          <div class="flex items-start px-2 flex-col py-2">
+            <h2 class="font-sans text-md px-2 py-2">Agent or Agency</h2>
+            <input [(ngModel)]="agency" type="text" class="w-full px-2 py-3 rounded-xl outline outline-1 outline-gray-300 placeholder:pl-2" placeholder="Select an agent or agency">
+          </div>
+          <div class="flex items-center w-full space-x-2 px-2 py-2">
+            <button (click)="resetfillters()" (click)="agency=''&&maxSqr=0&&minSqr=0" class="w-1/2 rounded-xl outline outline-1 outline-blue-300 py-1 font-sans hover:outline-blue-900 transition-all duration-200">Reset</button>
+            <button (click)="send('infilter','arrow4')" class="w-1/2 rounded-xl  bg-blue-900 text-white py-1 font-sans hover:bg-blue-600 transition-all duration-200">Done</button>
+          </div>
+        </div>
+      </div>
+      <!-- map or list -->
+      <div *ngIf="appear ==='map'" class="flex p-1 px-1 items-center justify-center space-x-2.5 outline outline-1 outline-gray-300 rounded-lg  h-14">
+        <button class=" h-full text-center  font-sans  flex items-center space-x-1 rounded-md w-full px-2" (click)="appearClick('list')">
+          <i class='bx bx-list-ul '></i>
+          <p class="font-sans text-md">List</p>
+        </button>
+        <button class="h-full text-center  font-sans bg-gray-200 flex items-center space-x-1 rounded-md w-full px-2" (click)="appearClick('map')">
+          <i class='bx bx-map-alt'></i>
+          <p class="font-sans text-md">Map</p>
+        </button>
+      </div>
+    </div>
+  </section>
+  <!-- main area -->
+  <section id="main">
+    <!-- main container  filters-->
+    <!-- ********** edit here grid to hidden -->
+    <div *ngIf="appear ==='list'" class="w-full grid grid-cols-1 md:grid-cols-4 lg:gap-4 h-auto">
+      <!--------------------- find home by drive --------------------->
+      <div id="drive" class=" hidden lg:flex flex-col w-full items-center justify-center col-span-1 md:order-2  lg:items-start lg:justify-start " >
+        <div class="group w-full rounded-xl overflow-hidden cursor-pointer relative px-6 lg:px-0">
+          <img class="group-hover:scale-105 transition-all duration-200 " src="../../assets/sub/drive.svg" alt="">
+          <div class="absolute hidden   items-center space-x-2 bottom-2 left-20  sm:left-28 md:hidden lg:flex lg:left-3   bg-white rounded-lg px-4 text-cyan-900 py-2 font-sans text-base">
+            <img class="w-7" src="../../assets/sub/drive_icon.svg" alt="">
+            <p class="group-hover:text-cyan-600 transition-all duration-200 hidden lg:block">Find Homes by Drive Time</p>
+          </div>
+        </div>
+        <!-- after svg -->
+        <div class="flex items-center justify-center md:flex-col mt-4 space-x-4 md:space-x-0 w-full">
+          <!-- smale screen -->
+          <!-- recommended search -->
+        <button  [matMenuTriggerFor]="menu1" class="bg-gray-300 rounded-xl px-4 py-2 group md:hidden">Recommended searchs <i  class='bx bxs-chevron-down  transition-all duration-200'></i></button>
+          <mat-menu #menu1="matMenu" class="divide-y-2">
+            <button mat-menu-item >Studio Propertise for sale in Egypt</button>
+            <button mat-menu-item>Apartments for sale in Egypt</button>
+            <button mat-menu-item>Chalets for sale in Egypt</button>
+            <button mat-menu-item>Townhouses for sale in Egypt</button>
+            <button mat-menu-item>Duplexes for sale in Egypt</button>
+            <button mat-menu-item>Twin House for sale in Egypt</button>
+            <button mat-menu-item>Penthouses for sale in Egypt</button>
+            <button mat-menu-item>Other Residential for sale in Egypt</button>
+            <button mat-menu-item>Rooms for sale in Egypt</button>
+          </mat-menu>
+          <!-- Usful links -->
+        <button  [matMenuTriggerFor]="menu2" class="bg-gray-300 rounded-xl px-4 py-2 md:hidden">Useful links <i  class='bx bxs-chevron-down  transition-all duration-200'></i></button>
+          <mat-menu #menu2="matMenu">
+            <button mat-menu-item>Propertise for rent in Egypt</button>
+          </mat-menu>
+        <!-- large screen -->
+        <!-- recommended search -->
+          <div class="hidden md:flex w-full flex-col items-start space-y-4">
+            <h1 class="w-full bg-gray-300 text-start fone-sans px-2 rounded-sm text-md font-semibold">Recommended searches</h1>
+            <div id="reco" class="flex flex-col items-start space-y-2 lg:max-h-40 md:max-h-36 overflow-hidden ">
+              <p class="text-sm cursor-pointer hover:underline hover:underline-offset-2 text-gray-500">
+                Studio Propertise for sale in Egypt
+              </p>
+              <p class="text-sm cursor-pointer hover:underline hover:underline-offset-2 text-gray-500">
+                Apartments for sale in Egypt
+              </p>
+              <p class="text-sm cursor-pointer hover:underline hover:underline-offset-2 text-gray-500">
+                1 Bedroom Propertise for sale in Egypt
+              </p>
+              <p class="text-sm cursor-pointer hover:underline hover:underline-offset-2 text-gray-500">
+                2 Bedroom Propertise for sale in Egypt
+              </p>
+              <p class="text-sm cursor-pointer hover:underline hover:underline-offset-2 text-gray-500">
+                3 Bedroom Propertise for sale in Egypt
+              </p>
+              <p class="text-sm cursor-pointer hover:underline hover:underline-offset-2 text-gray-500">
+                4 Bedroom Propertise for sale in Egypt
+              </p>
+              <p class="text-sm cursor-pointer hover:underline hover:underline-offset-2 text-gray-500">
+                Chalets for sale in Egypt
+              </p>
+              <p class="text-sm cursor-pointer hover:underline hover:underline-offset-2 text-gray-500">
+                Townhouses for sale in Egypt
+              </p>
+              <p class="text-sm cursor-pointer hover:underline hover:underline-offset-2 text-gray-500">
+                Duplexes for sale in Egypt
+              </p>
+              <p class="text-sm cursor-pointer hover:underline hover:underline-offset-2 text-gray-500">
+                Twin House for sale in Egypt
+              </p>
+              <p class="text-sm cursor-pointer hover:underline hover:underline-offset-2 text-gray-500">
+                Penthouses for sale in Egypt
+              </p>
+              <p class="text-sm cursor-pointer hover:underline hover:underline-offset-2 text-gray-500">
+                Other Residential for sale in Egypt
+              </p>
+              <p class="text-sm cursor-pointer hover:underline hover:underline-offset-2 text-gray-500">
+                Rooms for sale in Egypt
+              </p>
+            </div>
+            <button type="button" (click)="expandrecommindation()" class="text-md text-gray-800 font-sans">{{expand}}</button>
+          </div>
+        <!-- Usful links -->
+        <div class="hidden md:flex w-full flex-col items-start space-y-4 py-4">
+          <h1 class="w-full bg-gray-300 text-start fone-sans px-2 rounded-sm text-md font-semibold">Useful links</h1>
+          <div id="reco" class="flex flex-col items-start space-y-2 max-h-40 overflow-hidden ">
+            <p class="text-sm cursor-pointer hover:underline hover:underline-offset-2 text-gray-500">
+              Propertise for rent in Egypt
+            </p>
+          </div>
+        </div>
+        <!-- large screen -->
+      </div>
+      </div>
+      <!-- --------------------- flats data --------------------- -->
+      <!-- main flat container -->
+      <div class="flex flex-col items-center justify-start lg:items-start space-y-2 w-full pt-4 col-span-4 lg:col-span-3 md:order-1">
+        <!----- first ----->
+        <div class="flex flex-col items-center lg:items-start w-full space-y-4 ">
+          <!-- head -->
+          <div class="flex items-center lg:items-start lg:w-full justify-between space-x-4">
+            <h1 class="font-sans text-md md:text-lg text-black font-semibold lg:text-xl">Residential Properties for sale in Egypt</h1>
+            <button class=" px-3 py-1 flex items-center justify-center outline outline-1 outline-gray-300 rounded-xl hover:outline-gray-800 trans">Save Search</button>
+          </div>
+          <!-- choises -->
+          <div class="flex items-center justify-between lg:w-full space-x-2">
+            <!-- buttons -->
+            <div id="optiontype2" class=" py-1 px-1 h-10 w-fit space-x-2     flex items-center justify-between focus:outline-black rounded-lg">
+              <button (click)="typeOfPlan2('All')"  (click)="send('','')" class="outline outline-1 outline-gray-300 h-full px-2  w-full  md:px-4 lg:px-6 hover:bg-blue-200   transition-all duration-200  rounded-lg">All</button>
+              <button (click)="typeOfPlan2('Ready')"  (click)="send('','')" class="outline outline-1 outline-gray-300 h-full px-2 w-full md:px-4 lg:px-6 hover:bg-blue-200 bg-blue-300 transition-all duration-200 rounded-lg">Ready</button>
+              <button (click)="typeOfPlan2('Off-Plan')"  (click)="send('','')"  class="outline outline-1 outline-gray-300 h-full min-w-fit px-2  md:px-4 lg:px-6   hover:bg-blue-200  transition-all duration-200 rounded-lg text-xs md:text-base">Off-Plan</button>
+            </div>
+            <div class="flex items-center space-x-2">
+              <div class=" py-1 px-1 h-10  ">
+                <button class="outline outline-1 outline-gray-300 h-full px-2 w-full  md:px-4 hover:bg-blue-200   transition-all duration-200  rounded-xl flex items-center space-x-1" [matMenuTriggerFor]="menu">
+                  <i class='bx bx-menu-alt-left'></i>
+                  <p class="font-sans">Popular</p></button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item>Popular</button>
+                  <button mat-menu-item>Developer</button>
+                  <button mat-menu-item>Newest</button>
+                  <button mat-menu-item>Lowesr Price</button>
+                  <button mat-menu-item>Highest Price</button>
+                </mat-menu>
+              </div>
+              <div class="flex p-1 px-1 items-center justify-center space-x-2.5 outline outline-1 outline-gray-300 rounded-lg  ">
+                <button class=" h-full  font-sans bg-gray-200 flex items-center space-x-1 rounded-md w-full px-2" (click)="appearClick('list')">
+                  <i class='bx bx-list-ul'></i>
+                  <p class="font-sans text-md">List</p>
+                </button>
+                <button class="  font-sans focus:bg-gray-200 flex items-center space-x-1 rounded-md w-full px-2" (click)="appearClick('map')">
+                  <i class='bx bx-map-alt'></i>
+                  <p class="font-sans text-md">Map</p>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!----- flats data from backend ----->
+        <div class="grid grid-cols-1 md:grid-cols-2 items-center justify-center  gap-2 w-fit">
+          <!-- card -->
+          <div *ngFor="let flat of allflats;let x = index" class="flex min-h-full flex-col space-y-2 md:space-y-0 outline outline-2 outline-gray-300 rounded-lg   overflow-hidden">
+            <!-- image -->
+            <div class="w-full rounded-t-lg max-w-96 overflow-hidden group cursor-pointer" routerLink="/oneFlat/{{flat.id}}">
+              <img class="group-hover:scale-105 cursor-pointer trans " src="{{api}}/public/img_units/{{flat?.main_img}}" alt="">
+            </div>
+            <!-- data -->
+            <div class="flex flex-col space-y-2 items-start p-4">
+              <p class="text-xl text-black font-sans font-semibold">EGP {{flat.price}}</p>
+              <!-- about -->
+              <div class="flex items-center space-x-2">
+                <p class="text-lg font-semibold">
+                  {{flat.type}}
+                </p>
+                <div class="sp"></div>
+                <!-- bed rooms -->
+                <i class='bx bx-bed'></i>
+                <p class="text-base font-semibold">
+                  {{flat.bedrooms}}
+                </p>
+                <!-- bath rooms -->
+                <i class='bx bx-bath' ></i>
+                <p class="text-base font-semibold">
+                  {{flat.pathrooms}}
+                </p>
+                <div class="sp"></div>
+                <!-- area -->
+                <p class="text-lg font-semibold">
+                  Area : {{flat.area}} Sqr
+                </p>
+              </div>
+              <!-- location -->
+              <div class="flex items-center space-x-2">
+                <i class='bx bx-map text-xl'></i>
+                <p class="text-base text-black font-sec flex items-center space-x-2 ">
+                  {{flat.location.address}}
+                </p>
+              </div>
+              <!-- city -->
+              <div class="flex items-center space-x-2">
+                <i class='bx bxs-city' ></i>
+                <p class="text-base text-black font-sec flex items-center space-x-2 ">
+                  {{flat.city}}
+                </p>
+              </div>
+              <!-- buttons -->
+              <div class="flex items-center space-x-2 text-thr">
+                <button class="px-4 py-2 rounded-lg bg-gray-100 flex items-center space-x-2 hover:bg-gray-200 trans">
+                  <i class='bx bx-phone-call' ></i>
+                  <p>Call</p>
+                </button>
+                <button class="px-4 py-2 rounded-lg bg-gray-100 flex items-center space-x-2 hover:bg-gray-200 trans">
+                  <i class='bx bx-envelope' ></i>
+                  <p>Email</p>
+                </button>
+                <button class="px-4 py-2 rounded-lg bg-gray-100 flex items-center space-x-2 hover:bg-gray-200 trans">
+                  <i class='bx bxl-whatsapp text-xl' ></i>
+                  <p>whatsapp</p>
+                </button>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <mat-spinner *ngIf="spin" class="mx-auto"></mat-spinner>
+
+      </div>
+    </div>
+    <!--  -->
+
+    <!-- main container map -->
+
+    <app-map *ngIf="appear ==='map'"></app-map>
+
+  </section>
+
+
+
+
+</body>
+
+
+
